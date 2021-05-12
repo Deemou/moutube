@@ -8,7 +8,7 @@
     "url": "git+https://github.com/Deemou/moutube.git"
   },
   "scripts": {
-    "win": "node index.js"
+    "dev": "nodemon --exec babel-node index.js"
   },
   "author": "Deemou",
   "license": "MIT",
@@ -18,5 +18,11 @@
   "homepage": "https://github.com/Deemou/moutube#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.14.1",
+    "nodemon": "^2.0.7"
   }
 }
