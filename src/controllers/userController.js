@@ -2,6 +2,8 @@ import User from "../models/User";
 import fetch from "node-fetch";
 import bcrypt from "bcrypt";
 
+const defaultAvatarUrl = "https://moutube.s3.amazonaws.com/default_avatar.jpg";
+
 export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 export const postJoin = async (req, res) => {
   const { name, username, email, password, password2, location } = req.body;
@@ -21,6 +23,7 @@ export const postJoin = async (req, res) => {
   }
   try {
     await User.create({
+      avatarUrl: defaultAvatarUrl,
       name,
       username,
       email,
@@ -180,6 +183,22 @@ export const postEdit = async (req, res) => {
   );
   req.session.user = updatedUser;
   return res.redirect("/users/edit");
+};
+export const setDefaultAvatar = async (req, res) => {
+  const {
+    session: {
+      user: { _id },
+    },
+  } = req;
+  const updatedUser = await User.findByIdAndUpdate(
+    _id,
+    {
+      avatarUrl: defaultAvatarUrl,
+    },
+    { new: true }
+  );
+  req.session.user = updatedUser;
+  res.redirect("/users/edit");
 };
 export const getChangePassword = (req, res) => {
   if (req.session.user.socialOnly === true) {

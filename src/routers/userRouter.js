@@ -2,6 +2,7 @@ import express from "express";
 import {
   getEdit,
   postEdit,
+  setDefaultAvatar,
   logout,
   see,
   startGithubLogin,
@@ -23,6 +24,11 @@ userRouter
   .all(protectorMiddleware)
   .get(getEdit)
   .post(avatarUpload.single("avatar"), postEdit);
+userRouter
+  .route("/set-default-avatar")
+  .all(protectorMiddleware)
+  .get(setDefaultAvatar);
+userRouter.route("/change-password").all(protectorMiddleware);
 userRouter
   .route("/change-password")
   .all(protectorMiddleware)
