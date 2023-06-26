@@ -1,17 +1,24 @@
-# Moutube Reloaded
+## Contents
 
-/ -> Home
-/join
-/login
-/search
+- [Introduction](#introduction)
+- [Environment](#environment)
 
-/users/:id
-/users/logout
-/users/delete
+## Introduction
 
-/videos/:id
-/videos/:id/edit
-/videos/:id/remove
-/videos/upload
-/videos/:id/comments
-/videos/:id/comments/delete
+간단한 유튜브 클론 사이트입니다.
+
+## Environment
+
+- Language: JavaScript
+- Runtime Environment: Node.js
+- Framework: Express.js
+- Template Engine: Pug
+- CSS: Sass
+- Database: MongoDB, AWS
+- ODM: Mongoose
+- Bundler: Webpack
+- Transpiler: Babel
+- Other Library: Nodemon, Morgan, Bcrypt
+- Deploy: Heroku
+
+배포 서비스는 중단되었습니다.
